@@ -8,7 +8,8 @@ $stats = $pdo->query("SELECT
     SUM(CASE WHEN statut = 'confirme' THEN 1 ELSE 0 END) as confirmes,
     SUM(CASE WHEN statut = 'decline' THEN 1 ELSE 0 END) as declines,
     SUM(CASE WHEN statut = 'en_attente' THEN 1 ELSE 0 END) as en_attente,
-    SUM(CASE WHEN statut = 'confirme' THEN nombre_accompagnants + 1 ELSE 0 END) as total_participants
+    SUM(CASE WHEN statut = 'confirme' THEN nombre_accompagnants + 1 ELSE 0 END) as total_participants,
+    SUM(nombre_accompagnants + 1) as total_personnes
 FROM invites")->fetch();
 
 // Récupérer tous les invités
@@ -58,7 +59,11 @@ $message = isset($_GET['msg']) ? $_GET['msg'] : '';
             </div>
             <div class="stat-card info">
                 <div class="stat-number"><?php echo $stats['total_participants']; ?></div>
-                <div class="stat-label">Participants Total</div>
+                <div class="stat-label">Confirmés + Accomp.</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="stat-number" style="color: white;"><?php echo $stats['total_personnes']; ?></div>
+                <div class="stat-label" style="color: white;">Total Général</div>
             </div>
         </div>
 
