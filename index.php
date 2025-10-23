@@ -8,8 +8,8 @@ $stats = $pdo->query("SELECT
     SUM(CASE WHEN statut = 'confirme' THEN 1 ELSE 0 END) as confirmes,
     SUM(CASE WHEN statut = 'decline' THEN 1 ELSE 0 END) as declines,
     SUM(CASE WHEN statut = 'en_attente' THEN 1 ELSE 0 END) as en_attente,
-    SUM(CASE WHEN statut = 'confirme' THEN nombre_accompagnants + 1 ELSE 0 END) as total_participants,
-    SUM(nombre_accompagnants + 1) as total_personnes
+    SUM(CASE WHEN statut = 'confirme' THEN nombre_accompagnants ELSE 0 END) as total_participants,
+    SUM(nombre_accompagnants) as total_personnes
 FROM invites")->fetch();
 
 // Récupérer tous les invités
