@@ -59,11 +59,11 @@ $message = isset($_GET['msg']) ? $_GET['msg'] : '';
             </div>
             <div class="stat-card info">
                 <div class="stat-number"><?php echo $stats['confirmes_total_personnes']; ?></div>
-                <div class="stat-label">Personnes Confirmées</div>
+                <div class="stat-label">Accompagnants Confirmés</div>
             </div>
             <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
                 <div class="stat-number" style="color: white;"><?php echo $stats['total_personnes']; ?></div>
-                <div class="stat-label" style="color: white;">Total Général</div>
+                <div class="stat-label" style="color: white;">Total Accompagnants</div>
             </div>
         </div>
 
